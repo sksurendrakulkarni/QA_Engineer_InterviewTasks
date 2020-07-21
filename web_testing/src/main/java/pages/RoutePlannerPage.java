@@ -34,7 +34,6 @@ public class RoutePlannerPage extends BasePageObject {
     private WebElement waytypesTitle;
 
     public void clickRoutePlannerBtn(WebDriver driver) {
-        WebDriverWaiter.waitPageLoaded(driver);
         WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(routePlannerBtn));
         ActionsSingleton.getActionsInstance(driver).moveToElement(routePlannerBtn).click().build().perform();
     }
@@ -44,34 +43,28 @@ public class RoutePlannerPage extends BasePageObject {
     }
 
     public void fulfillStartingPointField(WebDriver driver, String startingPointValue) {
-        WebDriverWaiter.waitPageLoaded(driver);
         WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(placeOrAddressField));
         ActionsSingleton.getActionsInstance(driver).moveToElement(placeOrAddressField).click().sendKeys(startingPointValue).build().perform();
     }
 
     public void clickStartHereBtn(WebDriver driver) {
-        WebDriverWaiter.waitPageLoaded(driver);
         startHereBtn.click();
     }
 
     public void fulfillDestinationPointField(WebDriver driver, String destinationValue) {
-        WebDriverWaiter.waitPageLoaded(driver);
         ActionsSingleton.getActionsInstance(driver).moveToElement(placeOrAddressField).click().sendKeys(destinationValue).build().perform();
     }
 
     public void clickSetAsDestinationBt(WebDriver driver) {
-        WebDriverWaiter.waitPageLoaded(driver);
         setAsDestinationBtn.click();
     }
 
     public void selectFirstElementInTheList(WebDriver driver) {
-        WebDriverWaiter.waitPageLoaded(driver);
         WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(firstElementInTheList));
         firstElementInTheList.click();
     }
 
     public boolean isWaytypesTitleDisplayed(WebDriver driver) {
-        WebDriverWaiter.waitPageLoaded(driver);
         WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(waytypesTitle));
         return waytypesTitle.isDisplayed();
     }

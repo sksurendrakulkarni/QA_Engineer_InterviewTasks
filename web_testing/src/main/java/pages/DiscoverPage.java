@@ -1,8 +1,13 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.ActionsSingleton;
+import utils.JSExecutor;
+import utils.WebDriverWaiter;
 
 public class DiscoverPage extends BasePageObject {
 
@@ -15,8 +20,29 @@ public class DiscoverPage extends BasePageObject {
     @FindBy(css = "span[class^='icon-notifications']")
     private WebElement notificationIcon;
 
-    @FindBy(xpath = "//span[contains(@class, 'icon-sport-mtb')]")
-    private Web
+    @FindBy(xpath = "//input[@placeholder='Where to?']")
+    private WebElement whereToField;
+
+    @FindBy(xpath = "//span[text()='Search']")
+    private WebElement searchBtn;
+
+    @FindBy(xpath = "//span[contains(text(), 'bike ride')]")
+    private WebElement bikeRideTextOnThePage;
+
+    @FindBy(xpath = "//span[text()='Save']")
+    private WebElement saveATourBtn;
+
+    @FindBy(xpath = "//span[text()='Got it!']")
+    private WebElement gotItBtn;
+
+    @FindBy(css = "div.c-page-index__indicator--user")
+    private WebElement userIndicator;
+
+    @FindBy(linkText = "Tours")
+    private WebElement toursLink;
+
+    @FindBy(xpath = "div.c-background-image")
+    private WebElement imageOfAvailableTour;
 
     public DiscoverPage(WebDriver driver) {
         super(driver);
@@ -32,5 +58,32 @@ public class DiscoverPage extends BasePageObject {
 
     public boolean isNotificationIconDisplayed() {
         return notificationIcon.isDisplayed();
+    }
+
+    public void clickSearchBtn(WebDriver driver) throws InterruptedException {
+        do {
+            ActionsSingleton.getActionsInstance(driver).moveToElement(searchBtn).click().build().perform();
+        } while (!searchBtn.isDisplayed());
+    }
+
+    public void saveATour(WebDriver driver) {
+        saveATourBtn.click();
+    }
+
+    public void clickGotItBtn(WebDriver driver) {
+        WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(gotItBtn));
+        gotItBtn.click();
+    }
+
+    public void clickOnUserIndicator() {
+        userIndicator.click();
+    }
+
+    public void clickOnToursLink() {
+        toursLink.click();
+    }
+
+    public boolean isTourAvailable() {
+        return imageOfAvailableTour.isDisplayed();
     }
 }

@@ -13,8 +13,4 @@ public class JSExecutor {
         }
         return executor;
     }
-
-    public static void clickElementUsingJSExecutor(WebDriver driver, WebElement element) {
-        getJSExecutor(driver).executeScript("arguments[0].click();", element);
-    }
 }

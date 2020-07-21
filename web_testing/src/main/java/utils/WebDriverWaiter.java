@@ -9,12 +9,8 @@ public class WebDriverWaiter {
 
     public static WebDriverWait getWaiter(WebDriver driver) {
         if (waiter == null) {
-            waiter = new WebDriverWait(driver, 20);
+            waiter = new WebDriverWait(driver, 3);
         }
         return waiter;
-    }
-
-    public static void waitPageLoaded(WebDriver driver) {
-        getWaiter(driver).until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 }
