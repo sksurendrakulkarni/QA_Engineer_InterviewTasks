@@ -9,9 +9,20 @@ public class StartPage extends BasePageObject {
     private WebElement signUpLogInBtn;
 
     @FindBy(css = "span[class^='icon-user-lang']")
-    private WebElement langIcon;
+    private WebElement languageIcon;
+
+    @FindBy(css = "span[class^=\"icon-notifications\"]")
+    private WebElement notificationIcon;
 
     public StartPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void clickSignUpLogInBtn() {
+        signUpLogInBtn.click();
+    }
+
+    public boolean isNotificationIconDisplayed() {
+        return notificationIcon.isDisplayed();
     }
 }

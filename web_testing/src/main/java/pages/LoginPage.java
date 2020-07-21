@@ -14,4 +14,9 @@ public class LoginPage extends BasePageObject {
     public LoginPage(WebDriver driver) {
         super(driver);
     }
+
+    public void fulfillEmailField(String email) {
+        emailField.sendKeys(email);
+    }
+
 }

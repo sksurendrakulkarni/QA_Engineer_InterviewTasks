@@ -3,8 +3,9 @@
 
 <suite name="default_suite">
     <parameter name="url" value="https://www.komoot.com/"/>
-    <parameter name="email" value="JohnDoe777test"/>
-    <parameter name="password" value="PassWord123!#"/>
+    <parameter name="email" value="JohnDoe777test@gmail.com"/>
+    <parameter name="correctPassword" value="PassWord123!#"/>
+    <parameter name="incorrectPassword" value="PassWord123!"/>
     
     <test name="tests">
         <classes>
