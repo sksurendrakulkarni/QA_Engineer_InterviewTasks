@@ -2,7 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="default_suite">
-
+    <parameter name="url" value="https://www.komoot.com/"/>
+    <parameter name="email" value="JohnDoe777test"/>
+    <parameter name="password" value="PassWord123!#"/>
+    
     <test name="tests">
         <classes>
         </classes>
