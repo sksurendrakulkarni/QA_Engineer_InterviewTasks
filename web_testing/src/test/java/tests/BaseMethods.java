@@ -18,6 +18,7 @@ public class BaseMethods {
     @Parameters({"url"})
     @BeforeMethod(alwaysRun = true)
     protected void baseInit(String url) {
+        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
