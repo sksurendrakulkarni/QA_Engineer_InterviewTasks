@@ -14,7 +14,7 @@ public class DiscoverPageTests extends BaseMethods {
         discoverPage = new DiscoverPage(driver);
     }
 
-    @Test
+    @Test(description = "Check possibility to save tour")
     public void checkPossibilityToSearchForATour() {
         discoverPage.clickSearchBtn();
         discoverPage.saveATour();
@@ -22,5 +22,15 @@ public class DiscoverPageTests extends BaseMethods {
         discoverPage.clickOnUserIndicator();
         discoverPage.clickOnToursLink();
         Assert.assertTrue(discoverPage.isTourAvailable());
+    }
+
+    @Test(dependsOnMethods = {"checkPossibilityToSearchForATour"}, description = "Check possibility to delete tour")
+    public void checkPossibilityToDeleteTour() {
+        discoverPage.clickOnUserIndicator();
+        discoverPage.clickOnToursLink();
+        discoverPage.clickDeleteTourLink();
+        discoverPage.clickConfirmDeleteTourLink();
+        driver.navigate().refresh();
+        Assert.assertTrue(discoverPage.isNoToursPlaceholderVisible());
     }
 }

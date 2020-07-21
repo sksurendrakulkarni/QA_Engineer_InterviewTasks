@@ -50,6 +50,9 @@ public class DiscoverPage extends BasePageObject {
     @FindBy(xpath = "//a[text()='I’m Sure!']")
     private WebElement confirmDeleteTourLink;
 
+    @FindBy(xpath = "//div[text()='Whoops, looks like you haven’t gotten around to exploring yet!']")
+    private WebElement noToursPlaceholder;
+
     public DiscoverPage(WebDriver driver) {
         super(driver);
     }
@@ -97,5 +100,9 @@ public class DiscoverPage extends BasePageObject {
 
     public void clickConfirmDeleteTourLink() {
         confirmDeleteTourLink.click();
+    }
+
+    public boolean isNoToursPlaceholderVisible() {
+        return noToursPlaceholder.isDisplayed();
     }
 }

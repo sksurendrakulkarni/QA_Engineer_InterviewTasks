@@ -17,7 +17,7 @@ public class RoutePlannerTests extends BaseMethods {
     }
 
     @Parameters({"startPoint", "destinationPoint"})
-    @Test(description = "Check route planning shows details section info")
+    @Test(description = "Check route planning shows waytypes section info")
     public void checkAbilityToFindARout(String startPoint, String destinationPoint) {
         routePlannerPage.clickRoutePlannerBtn();
 
