@@ -5,24 +5,24 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.StartPage;
+import pages.DiscoverPage;
 
 public class LoginTests extends BaseMethods {
 
     @BeforeMethod(alwaysRun = true)
     private void loginInit() {
-        startPage = new StartPage(driver);
+        discoverPage = new DiscoverPage(driver);
         loginPage = new LoginPage(driver);
-        driver.get("https://account.komoot.com/signin");
     }
 
-    @Parameters({"email", "correctPassword"})
-    @Test(invocationCount = 10, description = "Check possibility to login with valid credentials")
-    public void testLogIn(String email, String correctPassword) {
+    @Parameters({"signInUrl", "email", "password"})
+    @Test(invocationCount = 2, description = "Check possibility to login with valid credentials")
+    public void testLogIn(String signInUrl, String email, String password) {
+        driver.get(signInUrl);
         loginPage.fulfillEmail(email);
         loginPage.clickContinueWithEmailBtn();
-        loginPage.fulfillPassword(correctPassword);
+        loginPage.fulfillPassword(password);
         loginPage.clickLogInBtn();
-        Assert.assertTrue(startPage.isNotificationIconDisplayed());
+        Assert.assertTrue(discoverPage.isNotificationIconDisplayed());
     }
 }
