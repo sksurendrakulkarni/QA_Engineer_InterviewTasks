@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePageObject {
-    @FindBy(id = "email")
+    @FindBy(xpath = "//input[@id='email']")
     private WebElement emailField;
 
     @FindBy(id = "password")
     private WebElement passwordField;
 
     @FindBy(xpath = "//div[text()='Continue with Email']")
-    private WebElement continueBtn;
+    private WebElement continueWithEmailBtn;
 
     @FindBy(xpath = "//div[text()='Log In']")
     private WebElement logInBtn;
@@ -21,13 +21,16 @@ public class LoginPage extends BasePageObject {
         super(driver);
     }
 
-    public void fulfillEmailAndPassword(WebDriver driver, String email, String password) {
+    public void fulfillEmail(String email) {
         emailField.sendKeys(email);
+    }
+
+    public void fulfillPassword(String password) {
         passwordField.sendKeys(password);
     }
 
-    public void clickContinueBtn() {
-        continueBtn.click();
+    public void clickContinueWithEmailBtn() {
+        continueWithEmailBtn.click();
     }
 
     public void clickLogInBtn() {

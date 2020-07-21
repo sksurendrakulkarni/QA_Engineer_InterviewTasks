@@ -13,21 +13,16 @@ public class LoginTests extends BaseMethods {
     private void loginInit() {
         startPage = new StartPage(driver);
         loginPage = new LoginPage(driver);
+        driver.get("https://account.komoot.com/signin");
     }
 
     @Parameters({"email", "correctPassword"})
-    @Test(description = "Check possibility to login with valid credentials")
+    @Test(invocationCount = 10, description = "Check possibility to login with valid credentials")
     public void testLogIn(String email, String correctPassword) {
-        startPage.clickSignUpLogInBtn(driver);
-        loginPage.fulfillEmailAndPassword(driver, email, correctPassword);
+        loginPage.fulfillEmail(email);
+        loginPage.clickContinueWithEmailBtn();
+        loginPage.fulfillPassword(correctPassword);
         loginPage.clickLogInBtn();
         Assert.assertTrue(startPage.isNotificationIconDisplayed());
     }
-/*
-    @Parameters({"email", "incorrectPassword"})
-    @Test(description = "Check credentials validation works correctly")
-    public void testCredentialsValidation() {
-
-    }
-*/
 }

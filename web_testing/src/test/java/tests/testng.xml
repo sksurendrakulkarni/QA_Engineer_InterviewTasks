@@ -2,7 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="default_suite">
-    <parameter name="url" value="https://www.komoot.com/"/>
+    <parameter name="engUrl" value="https://www.komoot.com/"/>
+    <parameter name="deUrl" value="https://www.komoot.de/"/>
     <parameter name="email" value="JohnDoe777test@gmail.com"/>
     <parameter name="correctPassword" value="PassWord123!#"/>
     <parameter name="incorrectPassword" value="PassWord123!"/>
