@@ -9,16 +9,17 @@ import pages.DiscoverPage;
 
 public class LoginTests extends BaseMethods {
 
+    @Parameters({"engUrl"})
     @BeforeMethod(alwaysRun = true)
-    private void loginInit() {
+    private void loginInit(String signInUrl) {
         discoverPage = new DiscoverPage(driver);
         loginPage = new LoginPage(driver);
+        driver.get(signInUrl);
     }
 
-    @Parameters({"signInUrl", "email", "password"})
+    @Parameters({"email", "password"})
     @Test(invocationCount = 2, description = "Check possibility to login with valid credentials")
-    public void testLogIn(String signInUrl, String email, String password) {
-        driver.get(signInUrl);
+    public void testLogIn(String email, String password) {
         loginPage.fulfillEmail(email);
         loginPage.clickContinueWithEmailBtn();
         loginPage.fulfillPassword(password);

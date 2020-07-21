@@ -8,11 +8,12 @@
     <parameter name="email" value="JohnDoe777test@gmail.com"/>
     <parameter name="password" value="PassWord123!#"/>
 
-    <parameter name="whereTo" value="Potsdam"/>
-    
+    <parameter name="startPoint" value="Berlin"/>
+    <parameter name="destinationPoint" value="Potsdam"/>
+
     <test name="tests">
         <classes>
-            <class name="tests.LoginTests"/>
+            <class name="tests.RoutePlannerTests"/>
         </classes>
     </test>
 

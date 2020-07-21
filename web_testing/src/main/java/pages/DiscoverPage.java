@@ -15,6 +15,9 @@ public class DiscoverPage extends BasePageObject {
     @FindBy(css = "span[class^='icon-notifications']")
     private WebElement notificationIcon;
 
+    @FindBy(xpath = "//span[contains(@class, 'icon-sport-mtb')]")
+    private Web
+
     public DiscoverPage(WebDriver driver) {
         super(driver);
     }

@@ -8,7 +8,7 @@ import pages.DiscoverPage;
 
 public class DiscoverPageTests extends BaseMethods {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void startPageInit() {
         discoverPage = new DiscoverPage(driver);
     }
@@ -19,5 +19,10 @@ public class DiscoverPageTests extends BaseMethods {
         discoverPage.clickLanguageIcon();
         discoverPage.clickDELanguage();
         Assert.assertEquals(driver.getCurrentUrl(), deUrl);
+    }
+
+    @Test
+    public void checkPossibilityToSearchForATour() {
+
     }
 }
