@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,20 +22,14 @@ public class AccountPage extends BasePageObject {
     @FindBy(xpath = "//option[@value='de_DE']")
     private WebElement languageDE;
 
-    @FindBy(xpath = "//option[@value='en_GB']")
-    private WebElement languageEN;
-
     @FindBy(xpath = "//h2[text()='Sprache und Einheiten']")
     private WebElement germanHeader;
-
-    @FindBy(xpath = "//h2[text()='Language and Units']")
-    private WebElement englishHeader;
 
     public AccountPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickActionDotsIcon(WebDriver driver) {
+    public void clickActionDotsIcon() {
         actionDotsIcon.click();
     }
 
@@ -59,14 +52,5 @@ public class AccountPage extends BasePageObject {
     public boolean isHeaderInGerman(WebDriver driver) {
         WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(germanHeader));
         return germanHeader.isDisplayed();
-    }
-
-    public boolean isHeaderInEnglish(WebDriver driver) {
-        WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(englishHeader));
-        return englishHeader.isDisplayed();
-    }
-
-    public void selectENLanguage() {
-        languageEN.click();
     }
 }

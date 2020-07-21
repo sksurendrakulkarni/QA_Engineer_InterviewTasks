@@ -18,7 +18,7 @@ public class AccountTests extends BaseMethods {
 
     @Test(description = "Check language can be switched")
     public void checkLanguageCanBeSwitched() {
-        accountPage.clickActionDotsIcon(driver);
+        accountPage.clickActionDotsIcon();
         accountPage.clickAccountSettings();
         accountPage.selectLanguageAndUnitsListItem();
         accountPage.clickLanguageDropDown();

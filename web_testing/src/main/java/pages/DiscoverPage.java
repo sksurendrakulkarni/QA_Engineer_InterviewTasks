@@ -1,12 +1,9 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import utils.ActionsSingleton;
-import utils.JSExecutor;
 import utils.WebDriverWaiter;
 
 public class DiscoverPage extends BasePageObject {
@@ -44,6 +41,15 @@ public class DiscoverPage extends BasePageObject {
     @FindBy(xpath = "div.c-background-image")
     private WebElement imageOfAvailableTour;
 
+    @FindBy(css = "li[data-tour-id]")
+    private WebElement addedTour;
+
+    @FindBy(xpath = "//a[text()='Delete']")
+    private WebElement deleteTourLink;
+
+    @FindBy(xpath = "//a[text()='I’m Sure!']")
+    private WebElement confirmDeleteTourLink;
+
     public DiscoverPage(WebDriver driver) {
         super(driver);
     }
@@ -60,13 +66,11 @@ public class DiscoverPage extends BasePageObject {
         return notificationIcon.isDisplayed();
     }
 
-    public void clickSearchBtn(WebDriver driver) throws InterruptedException {
-        do {
-            ActionsSingleton.getActionsInstance(driver).moveToElement(searchBtn).click().build().perform();
-        } while (!searchBtn.isDisplayed());
+    public void clickSearchBtn() {
+        searchBtn.click();
     }
 
-    public void saveATour(WebDriver driver) {
+    public void saveATour() {
         saveATourBtn.click();
     }
 
@@ -84,6 +88,14 @@ public class DiscoverPage extends BasePageObject {
     }
 
     public boolean isTourAvailable() {
-        return imageOfAvailableTour.isDisplayed();
+        return addedTour.isDisplayed();
+    }
+
+    public void clickDeleteTourLink() {
+        deleteTourLink.click();
+    }
+
+    public void clickConfirmDeleteTourLink() {
+        confirmDeleteTourLink.click();
     }
 }

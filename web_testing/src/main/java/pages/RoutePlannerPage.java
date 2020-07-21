@@ -1,27 +1,22 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.ActionsSingleton;
-import utils.JSExecutor;
 import utils.WebDriverWaiter;
 
-import java.security.Key;
 
 public class RoutePlannerPage extends BasePageObject {
 
     @FindBy(linkText = "Route planner")
     private WebElement routePlannerBtn;
 
-    @FindBy(css = "input.mousetrap")
+    @FindBy(xpath = "//input[@placeholder='Search For Place Or Address']")
     private WebElement placeOrAddressField;
 
-    @FindBy(xpath = "(//li/div[contains(@class, 'o-media')])[1]")
+    @FindBy(xpath = "//ul[contains(@class, 'o-list-ui')]/li[1]")
     private WebElement firstElementInTheList;
 
     @FindBy(xpath = "//span[text()='Start Here']")
@@ -33,9 +28,8 @@ public class RoutePlannerPage extends BasePageObject {
     @FindBy(xpath = "//h3[text()='Waytypes']")
     private WebElement waytypesTitle;
 
-    public void clickRoutePlannerBtn(WebDriver driver) {
-        WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(routePlannerBtn));
-        ActionsSingleton.getActionsInstance(driver).moveToElement(routePlannerBtn).click().build().perform();
+    public void clickRoutePlannerBtn() {
+        routePlannerBtn.click();
     }
 
     public RoutePlannerPage(WebDriver driver) {
@@ -43,11 +37,10 @@ public class RoutePlannerPage extends BasePageObject {
     }
 
     public void fulfillStartingPointField(WebDriver driver, String startingPointValue) {
-        WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(placeOrAddressField));
         ActionsSingleton.getActionsInstance(driver).moveToElement(placeOrAddressField).click().sendKeys(startingPointValue).build().perform();
     }
 
-    public void clickStartHereBtn(WebDriver driver) {
+    public void clickStartHereBtn() {
         startHereBtn.click();
     }
 
@@ -55,13 +48,13 @@ public class RoutePlannerPage extends BasePageObject {
         ActionsSingleton.getActionsInstance(driver).moveToElement(placeOrAddressField).click().sendKeys(destinationValue).build().perform();
     }
 
-    public void clickSetAsDestinationBt(WebDriver driver) {
+    public void clickSetAsDestinationBt() {
         setAsDestinationBtn.click();
     }
 
     public void selectFirstElementInTheList(WebDriver driver) {
         WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(firstElementInTheList));
-        firstElementInTheList.click();
+        ActionsSingleton.getActionsInstance(driver).moveToElement(firstElementInTheList).click().perform();
     }
 
     public boolean isWaytypesTitleDisplayed(WebDriver driver) {

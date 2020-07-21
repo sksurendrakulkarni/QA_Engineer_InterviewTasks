@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import org.testng.annotations.TestInstance;
 import pages.RoutePlannerPage;
 
 public class RoutePlannerTests extends BaseMethods {
@@ -20,15 +19,15 @@ public class RoutePlannerTests extends BaseMethods {
     @Parameters({"startPoint", "destinationPoint"})
     @Test(description = "Check route planning shows details section info")
     public void checkAbilityToFindARout(String startPoint, String destinationPoint) {
-        routePlannerPage.clickRoutePlannerBtn(driver);
+        routePlannerPage.clickRoutePlannerBtn();
 
         routePlannerPage.fulfillStartingPointField(driver, startPoint);
         routePlannerPage.selectFirstElementInTheList(driver);
-        routePlannerPage.clickStartHereBtn(driver);
+        routePlannerPage.clickStartHereBtn();
 
         routePlannerPage.fulfillDestinationPointField(driver, destinationPoint);
         routePlannerPage.selectFirstElementInTheList(driver);
-        routePlannerPage.clickSetAsDestinationBt(driver);
+        routePlannerPage.clickSetAsDestinationBt();
 
         Assert.assertTrue(routePlannerPage.isWaytypesTitleDisplayed(driver));
     }

@@ -17,7 +17,7 @@
     <test name="tests">
         <classes>
             <!-- <class name="tests.RoutePlannerTests"/> -->
-            <class name="tests.AccountTests"/>
+            <class name="tests.DiscoverPageTests"/>
         </classes>
     </test>
 
