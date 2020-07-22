@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="default_suite">
+    <parameter name="signInUrl" value="https://account.komoot.com/signin"/>
+    <parameter name="engUrl" value="https://www.komoot.com/"/>
+    <parameter name="deUrl" value="https://www.komoot.de/"/>
+    <parameter name="email" value="JohnDoe777test@gmail.com"/>
+    <parameter name="password" value="PassWord123!#"/>
+
+    <!-- Thread.sleep considered a bad practice and discouraged to be used,
+    however there are some page's initializations (probably xhr requests) that are started once page is opened
+    and it takes some time before WebElements become functional. -->
+    <parameter name="pageLoadWaitTime" value="6000"/>
+
+    <parameter name="startPoint" value="Potsdam"/>
+    <parameter name="destinationPoint" value="Berlin"/>
+
+    <test name="tests">
+        <classes>
+            <class name="tests.LoginTests"/>
+            <class name="tests.RoutePlannerTests"/>
+            <class name="tests.DiscoverPageTests"/>
+        </classes>
+    </test>
+</suite>
