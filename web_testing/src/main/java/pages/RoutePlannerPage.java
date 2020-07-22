@@ -40,7 +40,8 @@ public class RoutePlannerPage extends BasePageObject {
         ActionsSingleton.getActionsInstance(driver).moveToElement(placeOrAddressField).click().sendKeys(startingPointValue).build().perform();
     }
 
-    public void clickStartHereBtn() {
+    public void clickStartHereBtn(WebDriver driver) {
+        WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(startHereBtn));
         startHereBtn.click();
     }
 
@@ -48,7 +49,8 @@ public class RoutePlannerPage extends BasePageObject {
         ActionsSingleton.getActionsInstance(driver).moveToElement(placeOrAddressField).click().sendKeys(destinationValue).build().perform();
     }
 
-    public void clickSetAsDestinationBt() {
+    public void clickSetAsDestinationBt(WebDriver driver) {
+        WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(setAsDestinationBtn));
         setAsDestinationBtn.click();
     }
 

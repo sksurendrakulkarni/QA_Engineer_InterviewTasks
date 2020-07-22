@@ -20,11 +20,11 @@ public class BaseMethods {
 
     @BeforeMethod(alwaysRun = true)
     protected void baseInit() {
-        //System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-        //driver = new ChromeDriver();
-        System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+        driver = new ChromeDriver();
+        //System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+        //driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 

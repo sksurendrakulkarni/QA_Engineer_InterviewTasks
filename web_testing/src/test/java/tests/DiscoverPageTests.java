@@ -10,12 +10,12 @@ public class DiscoverPageTests extends BaseMethods {
     @BeforeMethod(alwaysRun = true)
     public void startPageInit(int pageLoadWaitTime, String signInUrl, String email, String password) throws InterruptedException {
         this.logIn(signInUrl, email, password);
-        Thread.sleep(pageLoadWaitTime);
         discoverPage = new DiscoverPage(driver);
+        Thread.sleep(pageLoadWaitTime);
     }
 
     @Test(description = "Check possibility to save tour")
-    public void checkPossibilityToSearchForATour() {
+    public void checkPossibilityToSaveTour() {
         discoverPage.clickSearchBtn();
         discoverPage.saveATour();
         discoverPage.clickGotItBtn(driver);
@@ -24,7 +24,7 @@ public class DiscoverPageTests extends BaseMethods {
         Assert.assertTrue(discoverPage.isTourAvailable());
     }
 
-    @Test(dependsOnMethods = {"checkPossibilityToSearchForATour"}, description = "Check possibility to delete tour")
+    @Test(dependsOnMethods = {"checkPossibilityToSaveTour"}, description = "Check possibility to delete tour")
     public void checkPossibilityToDeleteTour() {
         discoverPage.clickOnUserIndicator();
         discoverPage.clickOnToursLink();

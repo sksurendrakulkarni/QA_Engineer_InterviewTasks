@@ -20,13 +20,13 @@ public class DiscoverPage extends BasePageObject {
     @FindBy(xpath = "//input[@placeholder='Where to?']")
     private WebElement whereToField;
 
-    @FindBy(xpath = "//span[text()='Search']")
+    @FindBy(xpath = "//button[contains(@class, 'c-btn--large')]")
     private WebElement searchBtn;
 
     @FindBy(xpath = "//span[contains(text(), 'bike ride')]")
     private WebElement bikeRideTextOnThePage;
 
-    @FindBy(xpath = "//span[text()='Save']")
+    @FindBy(css = "span.icon-action-add")
     private WebElement saveATourBtn;
 
     @FindBy(xpath = "//span[text()='Got it!']")

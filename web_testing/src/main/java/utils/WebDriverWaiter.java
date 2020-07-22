@@ -8,7 +8,7 @@ public class WebDriverWaiter {
 
     public static WebDriverWait getWaiter(WebDriver driver) {
         if (waiter == null) {
-            waiter = new WebDriverWait(driver, 10);
+            waiter = new WebDriverWait(driver, 15);
         }
         return waiter;
     }

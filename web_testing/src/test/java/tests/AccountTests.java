@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -24,5 +25,11 @@ public class AccountTests extends BaseMethods {
         accountPage.clickLanguageDropDown();
         accountPage.selectDELanguage();
         Assert.assertTrue(accountPage.isHeaderInGerman(driver));
+    }
+
+    @AfterMethod(description = "Switch language back to English")
+    public void switchLanguageBackToEnglish() {
+        accountPage.clickLanguageDropDown();
+        accountPage.selectENLanguage(driver);
     }
 }

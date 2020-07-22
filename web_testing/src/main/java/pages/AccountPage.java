@@ -22,6 +22,9 @@ public class AccountPage extends BasePageObject {
     @FindBy(xpath = "//option[@value='de_DE']")
     private WebElement languageDE;
 
+    @FindBy(xpath = "//option[@value='en_GB']")
+    private WebElement languageEN;
+
     @FindBy(xpath = "//h2[text()='Sprache und Einheiten']")
     private WebElement germanHeader;
 
@@ -47,6 +50,11 @@ public class AccountPage extends BasePageObject {
 
     public void selectDELanguage() {
         languageDE.click();
+    }
+
+    public void selectENLanguage(WebDriver driver) {
+        WebDriverWaiter.getWaiter(driver).until(ExpectedConditions.visibilityOf(languageEN));
+        languageEN.click();
     }
 
     public boolean isHeaderInGerman(WebDriver driver) {
