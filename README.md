@@ -37,5 +37,5 @@ IDE: IntelliJ IDEA
 2. Open it with Java IDE
 3. Agree to download all maven dependencies it is offering in order to see this project structure as maven project
 4. Set Java project SDK to 12 in project structure settings and language level to `12 - No new language features`
-5. Right click on [testng.xml](link) file (located at `...\web_testing\src\test\java\tests\testng.xml`) => Run
+5. Right click on [testng.xml](https://github.com/Marselje/QA_Engineer_InterviewTasks/blob/master/web_testing/src/test/java/tests/testng.xml) file (located at `...\web_testing\src\test\java\tests\testng.xml`) => Run
 6. All tests should run one after another
